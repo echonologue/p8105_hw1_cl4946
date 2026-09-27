@@ -43,6 +43,46 @@ factor_vector = factor(
   )
 )
 
+problem2_df = tibble(
+  random_sample = rnorm(10),
+  positive = random_sample > 0,
+  character_vector = c(
+    "a", "b", "c", "d", "e",
+    "f", "g", "h", "i", "j"
+  ),
+  factor_vector = factor(
+    c(
+      "low", "medium", "high", "low", "medium",
+      "high", "low", "medium", "high", "low"
+    )
+  )
+)
 
+
+
+problem2_df
+
+
+pull(problem2_df, random_sample)
+
+mean(pull(problem2_df, random_sample))
+
+mean(pull(problem2_df, positive))
+mean(pull(problem2_df, character_vector))
+mean(pull(problem2_df, factor_vector))
 ```
+Taking the mean works for the numeric and logical variables, but does not work for the character or factor variables.
+
+For the logical variable, R treats `TRUE` as 1 and `FALSE` as 0, so the mean corresponds to the proportion of `TRUE` values.
+
+```{r}
+as.numeric(pull(problem2_df, positive))
+as.numeric(pull(problem2_df, character_vector))
+as.numeric(pull(problem2_df, factor_vector))
+```
+
+Converting the logical variable to numeric produces 1 for `TRUE` and 0 for `FALSE`. Converting the character variable to numeric produces `NA` values because the character strings cannot be interpreted as numbers. Converting the factor variable to numeric returns the underlying integer codes for the factor levels rather than meaningful numeric values.
+
+This helps explain why the mean works for the logical variable but not for
+the character or factor variables.
 
