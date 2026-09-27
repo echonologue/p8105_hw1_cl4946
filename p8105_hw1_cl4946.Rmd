@@ -29,3 +29,8 @@ The dataset contains `r nrow(penguins)` observations and
 
 
 ### Q2
+```{r}
+random_sample = rnorm(10)
+
+```
+
