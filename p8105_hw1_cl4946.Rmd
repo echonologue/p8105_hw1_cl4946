@@ -8,12 +8,17 @@ output: github_document
 library(tidyverse)
 data("penguins", package = "palmerpenguins")
 
+```
+
+### Q1
+```{r}
 penguins
 names(penguins)
 unique(penguins$species)
 unique(penguins$island)
 mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
+
 The dataset contains `r nrow(penguins)` observations and `r ncol(penguins)` variables.
 The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm.
 The `penguins` dataset contains data on Adelie, Chinstrap, and Gentoo penguins.
@@ -21,3 +26,6 @@ Important variables include `r names(penguins)`
 The dataset contains `r nrow(penguins)` observations and
 `r ncol(penguins)` variables. The mean flipper length is
 `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm.
+
+
+### Q2
